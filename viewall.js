@@ -229,6 +229,8 @@ document.querySelector('.search-bar').addEventListener('input', (e) => {
     displayJobs();
 }
 );
+
+// Event listeners for mobile filter panel
 document.getElementById('filter-category').addEventListener('change', (e) => {
     jobFilters.category = e.target.value;
     displayJobs();
@@ -251,6 +253,29 @@ document.getElementById('filter-salary').addEventListener('input', (e) => {
     displayJobs();
 });
 
+// Event listeners for sidebar filters (laptop/desktop view)
+document.getElementById('filter-category-sidebar').addEventListener('change', (e) => {
+    jobFilters.category = e.target.value;
+    displayJobs();
+});
+document.getElementById('filter-location-sidebar').addEventListener('change', (e) => {
+    jobFilters.location = e.target.value;
+    displayJobs();
+});
+document.getElementById('filter-type-sidebar').addEventListener('change', (e) => {
+    jobFilters.type = e.target.value;
+    displayJobs();
+});
+document.getElementById('filter-experience-sidebar').addEventListener('change', (e) => {
+    jobFilters.experience = e.target.value;
+    displayJobs();
+});
+document.getElementById('filter-salary-sidebar').addEventListener('input', (e) => {
+    jobFilters.salary = [0, parseInt(e.target.value)];
+    document.getElementById('salary-value-sidebar').textContent = `$${e.target.value}`;
+    displayJobs();
+});
+
 // Initial display of jobs
 
 displayJobs();
@@ -263,4 +288,9 @@ document.querySelector('.profile-button').addEventListener('click',() =>{
 
 document.querySelector('.into').addEventListener('click', () => {
     profileBioCard.classList.add('display');
+});
+
+document.querySelector('.into').addEventListener('click', () => {
+    profileBioCard.classList.add('display');
+
 });
